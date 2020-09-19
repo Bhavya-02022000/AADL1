@@ -236,7 +236,7 @@ class LoginPageState extends State<LoginPage> {
               .child('selfAssessmentUser')
               .child(firebaseUser.uid)
               .set(
-                  {"email": firebaseUser.email, "organization": organization}));
+                  {"email": firebaseUser.email, "organization": organization, "result":"Low Risk"}));
 
           DataStore.storedEmailOfAdmin = email;
           DataStore.storedPasswordOfAdmin = password;
@@ -249,7 +249,7 @@ class LoginPageState extends State<LoginPage> {
               .reference()
               .child("admin")
               .child(firebaseUser.uid)
-              .set({"organization": organization, "email": email});
+              .set({"organization": organization, "email": email, "result": "Low Risk"});
           // Auth auth1 = Provider.of(context).auth;
           // await auth.signOut();
         }
@@ -316,7 +316,7 @@ class LoginPageState extends State<LoginPage> {
             .reference()
             .child("admin")
             .child(firebaseUser.uid)
-            .set({"organization": organization, "email": email});
+            .set({"organization": organization, "email": email, "result":"Low Risk"});
         showAlertDialog(context);
         Auth auth = Provider.of(context).auth;
         await auth.signOut();
@@ -362,7 +362,7 @@ class LoginPageState extends State<LoginPage> {
                   .reference()
                   .child("admin")
                   .child(i)
-                  .set({"organization": organization, "email": email});
+                  .set({"organization": organization, "email": email, "result" :"Low Risk"});
 
               // final DatabaseReference dbref =
               //     FirebaseDatabase.instance.reference();
@@ -416,6 +416,12 @@ class LoginPageState extends State<LoginPage> {
           .child('selfAssessmentUser')
           .child(firebaseUser.uid)
           .update({'email': email});
+
+      var ref2 = await FirebaseDatabase.instance
+          .reference()
+          .child('selfAssessmentUser')
+          .child(firebaseUser.uid)
+          .update({'result': "Low Risk"});
 
       var ref1 = await FirebaseDatabase.instance
           .reference()
