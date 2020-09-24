@@ -64,6 +64,7 @@ attr alertDialogTheme
 attr allowStacking
 attr alpha
 attr alphabeticModifiers
+attr ambientEnabled
 attr arrowHeadLength
 attr arrowShaftLength
 attr autoCompleteTextViewStyle
@@ -93,6 +94,13 @@ attr buttonStyle
 attr buttonStyleSmall
 attr buttonTint
 attr buttonTintMode
+attr cameraBearing
+attr cameraMaxZoomPreference
+attr cameraMinZoomPreference
+attr cameraTargetLat
+attr cameraTargetLng
+attr cameraTilt
+attr cameraZoom
 attr cardBackgroundColor
 attr cardCornerRadius
 attr cardElevation
@@ -204,6 +212,10 @@ attr isLightTheme
 attr itemPadding
 attr keylines
 attr lastBaselineToBottomHeight
+attr latLngBoundsNorthEastLatitude
+attr latLngBoundsNorthEastLongitude
+attr latLngBoundsSouthWestLatitude
+attr latLngBoundsSouthWestLongitude
 attr layout
 attr layout_anchor
 attr layout_anchorGravity
@@ -227,8 +239,10 @@ attr listPreferredItemPaddingEnd
 attr listPreferredItemPaddingLeft
 attr listPreferredItemPaddingRight
 attr listPreferredItemPaddingStart
+attr liteMode
 attr logo
 attr logoDescription
+attr mapType
 attr maxButtonHeight
 attr measureWithLargestChild
 attr menu
@@ -328,6 +342,15 @@ attr track
 attr trackTint
 attr trackTintMode
 attr ttcIndex
+attr uiCompass
+attr uiMapToolbar
+attr uiRotateGestures
+attr uiScrollGestures
+attr uiScrollGesturesDuringRotateOrZoom
+attr uiTiltGestures
+attr uiZoomControls
+attr uiZoomGestures
+attr useViewLifecycle
 attr viewInflaterClass
 attr voiceIcon
 attr windowActionBar
@@ -340,6 +363,7 @@ attr windowFixedWidthMinor
 attr windowMinWidthMajor
 attr windowMinWidthMinor
 attr windowNoTitle
+attr zOrderOnTop
 bool abc_action_bar_embed_tabs
 bool abc_allow_stacked_button_bar
 bool abc_config_actionMenuItemAllCaps
@@ -734,6 +758,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable floating_action_mode_shape
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable launch_background
@@ -798,15 +823,20 @@ id action_bar_root
 id action_bar_spinner
 id action_bar_subtitle
 id action_bar_title
+id action_close
 id action_container
 id action_context_bar
 id action_divider
+id action_go_back
+id action_go_forward
 id action_image
 id action_menu_divider
 id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
+id action_reload
+id action_share
 id action_text
 id actions
 id activity_chooser_view_content
@@ -852,6 +882,7 @@ id com_facebook_tooltip_bubble_view_bottom_pointer
 id com_facebook_tooltip_bubble_view_text_body
 id com_facebook_tooltip_bubble_view_top_pointer
 id confirmation_code
+id container
 id content
 id contentPanel
 id custom
@@ -874,6 +905,7 @@ id forever
 id group_divider
 id home
 id homeAsUp
+id hybrid
 id icon
 id icon_group
 id icon_only
@@ -890,6 +922,7 @@ id line3
 id listMode
 id list_item
 id media_actions
+id menu_search
 id message
 id middle
 id multiply
@@ -905,6 +938,7 @@ id on
 id open_graph
 id page
 id parentPanel
+id progressBar
 id progress_bar
 id progress_circular
 id progress_horizontal
@@ -912,6 +946,7 @@ id radio
 id right
 id right_icon
 id right_side
+id satellite
 id screen
 id scrollIndicatorDown
 id scrollIndicatorUp
@@ -951,6 +986,7 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id terrain
 id text
 id text2
 id textSpacerNoButtons
@@ -966,6 +1002,7 @@ id uniform
 id unknown
 id up
 id useLogo
+id webView
 id wide
 id withText
 id wrap_content
@@ -1010,14 +1047,18 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_web_view
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
+layout chrome_custom_tabs_layout
 layout com_facebook_activity_layout
 layout com_facebook_device_auth_dialog_fragment
 layout com_facebook_login_fragment
 layout com_facebook_smart_device_dialog_fragment
 layout com_facebook_tooltip_bubble
 layout custom_dialog
+layout floating_action_mode
+layout floating_action_mode_item
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
@@ -1037,6 +1078,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu menu_main
 mipmap ic_launcher
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -1065,6 +1107,11 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string action_close
+string action_go_back
+string action_go_forward
+string action_reload
+string action_share
 string com_facebook_device_auth_instructions
 string com_facebook_image_download_unknown_error
 string com_facebook_internet_permission_error_message
@@ -1106,13 +1153,18 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string copy_toast_msg
 string default_web_client_id
+string fallback_menu_item_copy_link
+string fallback_menu_item_open_in_browser
+string fallback_menu_item_share_link
 string firebase_database_url
 string gcm_defaultSenderId
 string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
+string menu_search
 string project_id
 string search_menu_title
 string status_bar_notification_info_overflow
@@ -1121,6 +1173,7 @@ style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
 style Animation_AppCompat_DropDownUp
 style Animation_AppCompat_Tooltip
+style AppTheme
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog
@@ -1281,6 +1334,7 @@ style Base_Widget_AppCompat_Toolbar_Button_Navigation
 style CardView
 style CardView_Dark
 style CardView_Light
+style InAppWebViewTheme
 style LaunchTheme
 style NormalTheme
 style Platform_AppCompat
@@ -1401,6 +1455,7 @@ style ThemeOverlay_AppCompat_DayNight_ActionBar
 style ThemeOverlay_AppCompat_Dialog
 style ThemeOverlay_AppCompat_Dialog_Alert
 style ThemeOverlay_AppCompat_Light
+style ThemeTransparent
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid
 style Widget_AppCompat_ActionBar_TabBar
@@ -1514,6 +1569,7 @@ styleable LinearLayoutCompat android_gravity android_orientation android_baselin
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
 styleable LoadingImageView circleCrop imageAspectRatio imageAspectRatioAdjust
+styleable MapAttrs ambientEnabled cameraBearing cameraMaxZoomPreference cameraMinZoomPreference cameraTargetLat cameraTargetLng cameraTilt cameraZoom latLngBoundsNorthEastLatitude latLngBoundsNorthEastLongitude latLngBoundsSouthWestLatitude latLngBoundsSouthWestLongitude liteMode mapType uiCompass uiMapToolbar uiRotateGestures uiScrollGestures uiScrollGesturesDuringRotateOrZoom uiTiltGestures uiZoomControls uiZoomGestures useViewLifecycle zOrderOnTop
 styleable MenuGroup android_enabled android_id android_visible android_menuCategory android_orderInCategory android_checkableBehavior
 styleable MenuItem android_icon android_enabled android_id android_checked android_visible android_menuCategory android_orderInCategory android_title android_titleCondensed android_alphabeticShortcut android_numericShortcut android_checkable android_onClick actionLayout actionProviderClass actionViewClass alphabeticModifiers contentDescription iconTint iconTintMode numericModifiers showAsAction tooltipText
 styleable MenuView android_windowAnimationStyle android_itemTextAppearance android_horizontalDivider android_verticalDivider android_headerBackground android_itemBackground android_itemIconDisabledAlpha preserveIconSpacing subMenuArrow
@@ -1536,4 +1592,6 @@ styleable com_facebook_login_view com_facebook_confirm_logout com_facebook_login
 styleable com_facebook_profile_picture_view com_facebook_is_cropped com_facebook_preset_size
 xml flutter_image_picker_file_paths
 xml flutter_printing_file_paths
+xml image_share_filepaths
+xml provider_paths
 xml shared_file_paths

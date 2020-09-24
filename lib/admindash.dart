@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 // import 'package:adminApp/adminrequest.dart';
 import 'package:adminApp/auth.dart';
+import 'package:adminApp/extrafeatures.dart';
 import 'package:adminApp/main.dart';
 import 'package:adminApp/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -221,7 +222,7 @@ class _LeftTextState extends State<LeftText> {
           setState(() {
             lowRiskCount = lowRiskCount + 1;
           });
-        } else if (i == " Medium Risk" || i == "Medium Risk") {
+        } else if (i == " Med Risk" || i == "Med Risk") {
           setState(() {
             medRiskCount = medRiskCount + 1;
           });
@@ -264,7 +265,7 @@ class _LeftTextState extends State<LeftText> {
     adminLogin();
     newFunction();
     print('Init me ghusaa================================');
-    const fiveSeconds = const Duration(seconds: 100);
+    const fiveSeconds = const Duration(seconds: 15);
     Timer.periodic(fiveSeconds, (Timer t) => newFunction());
   }
 
@@ -917,6 +918,53 @@ class _Profile_dashState extends State<Profile_dash> {
             ),
             SizedBox(
               height: 10,
+            ),
+            RaisedButton(
+              elevation: 3.0,
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(3.0),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FeatureApp()),
+                );
+              },
+              child: Container(
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.folder,
+                          color: Colors.black,
+                        ),
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => FeatureApp()),
+                          );
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        "Features",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black54,
+                            fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                    SizedBox(height: 50),
+                  ],
+                ),
+              ),
             ),
             // RaisedButton(
             //   elevation: 3.0,
