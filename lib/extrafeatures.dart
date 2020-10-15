@@ -1,18 +1,22 @@
 
+import 'package:adminApp/admindash.dart';
 import 'package:adminApp/camera.dart';
 import 'package:adminApp/maps.dart';
 import 'package:adminApp/youtube.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
-// void main(List<String> args) {
-//   runApp(FeatureApp());
-// }
+void main(List<String> args) {
+  runApp(FeatureApp());
+}
 
 class FeatureApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
+
       debugShowCheckedModeBanner: false,
       title: 'AADL APP',
       theme: ThemeData(
@@ -40,7 +44,17 @@ class ButtonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("AADL PROJECT")),
+      appBar: AppBar(title: Text("AADL PROJECT"),
+      leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.push(
+            context,
+            PageTransition(
+                type: PageTransitionType.rightToLeft,
+                duration: Duration(milliseconds: 600),
+                child: Profile_dash()),
+          ),
+        ),),
       body: Padding(
           padding:
               EdgeInsets.only(left: 15.0, right: 15.0, bottom: 20.0, top: 8.0),

@@ -47,6 +47,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="adminApp"
         android:supportsRtl="true" >
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDfbD9zIP4A00z4KVe061m3ygcVU_sLoLw" />
+
         <activity
             android:name="com.example.adminApp.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
